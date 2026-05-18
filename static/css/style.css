@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 10px;
+    color: #333;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* 头部样式 */
+.header {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 2px solid #f0f0f0;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 28px;
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+.date-display {
+    font-size: 14px;
+    color: #666;
+}
+
+/* 主要步数展示 */
+.main-stats {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+    min-height: 200px;
+}
+
+.step-circle {
+    position: absolute;
+    text-align: center;
+    z-index: 2;
+}
+
+.step-count {
+    font-size: 48px;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.step-label {
+    font-size: 16px;
+    color: #999;
+    margin-top: 5px;
+}
+
+.progress-ring {
+    position: relative;
+}
+
+.progress-ring-bg {
+    fill: none;
+    stroke: #f0f0f0;
+    stroke-width: 15;
+}
+
+.progress-ring-fill {
+    fill: none;
+    stroke: #667eea;
+    stroke-width: 15;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke-dasharray: 565.48;
+    stroke-dashoffset: 565.48;
+    transition: stroke-dashoffset 0.5s ease;
+}
+
+/* 统计卡片 */
+.stats-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.stat-icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+/* 按钮样式 */
+.control-buttons {
+    display: flex;
+    gap: 10px;
+    margin: 30px 0;
+}
+
+.btn {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #f0f0f0;
+    color: #666;
+}
+
+.btn-danger {
+    background: #ff6b6b;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #ff5252;
+}
+
+/* 历史记录 */
+.history-section {
+    margin-top: 40px;
+}
+
+.history-section h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.history-list {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.history-item {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.history-date {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
+.history-stats {
+    display: flex;
+    gap: 15px;
+}
+
+.history-stat {
+    text-align: center;
+}
+
+.history-stat-value {
+    font-size: 16px;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.history-stat-label {
+    font-size: 12px;
+    color: #999;
+}
+
+/* 提示框 */
+.warning-box, .info-box {
+    background: #fff3cd;
+    border: 2px solid #ffc107;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.warning-box {
+    background: #f8d7da;
+    border-color: #dc3545;
+}
+
+.loading {
+    text-align: center;
+    color: #999;
+    padding: 20px;
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+    .stats-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .control-buttons {
+        flex-direction: column;
+    }
+    
+    .history-stats {
+        flex-direction: column;
+        gap: 5px;
+    }
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#4CAF50">
+    <title>运动计步器</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <h1>🏃‍♂️ 我的运动</h1>
+            <div class="date-display" id="dateDisplay"></div>
+        </header>
+
+        <!-- 主要数据展示 -->
+        <div class="main-stats">
+            <div class="step-circle">
+                <div class="step-count" id="stepCount">0</div>
+                <div class="step-label">步</div>
+            </div>
+            
+            <div class="progress-ring">
+                <svg width="200" height="200">
+                    <circle cx="100" cy="100" r="90" class="progress-ring-bg"/>
+                    <circle cx="100" cy="100" r="90" class="progress-ring-fill" id="progressRing"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- 统计卡片 -->
+        <div class="stats-cards">
+            <div class="stat-card">
+                <div class="stat-icon">🔥</div>
+                <div class="stat-value" id="caloriesValue">0</div>
+                <div class="stat-label">千卡</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📏</div>
+                <div class="stat-value" id="distanceValue">0</div>
+                <div class="stat-label">公里</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⏱️</div>
+                <div class="stat-value" id="timeValue">0</div>
+                <div class="stat-label">分钟</div>
+            </div>
+        </div>
+
+        <!-- 控制按钮 -->
+        <div class="control-buttons">
+            <button id="startBtn" class="btn btn-primary">开始记录</button>
+            <button id="stopBtn" class="btn btn-secondary" style="display: none;">停止记录</button>
+            <button id="resetBtn" class="btn btn-danger">重置今日</button>
+        </div>
+
+        <!-- 历史记录 -->
+        <div class="history-section">
+            <h2>📊 近7日记录</h2>
+            <div id="historyList" class="history-list">
+                <p class="loading">加载中...</p>
+            </div>
+        </div>
+
+        <!-- 设备支持提示 -->
+        <div id="supportWarning" class="warning-box" style="display: none;">
+            <p>⚠️ 您的设备可能不支持运动传感器</p>
+            <p>请使用支持加速度传感器的设备</p>
+        </div>
+
+        <!-- 权限请求提示 -->
+        <div id="permissionBox" class="info-box" style="display: none;">
+            <p>📱 需要访问设备运动传感器</p>
+            <button id="requestPermissionBtn" class="btn btn-primary">授予权限</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/pedometer.js') }}"></script>
+</body>
+</html>
